@@ -24,7 +24,7 @@ public class StudentDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_list);
+        setContentView(R.layout.activity_student_details_view);
 
         // Search the student in the list
         String nameStudent = getIntent().getStringExtra("student_name");
