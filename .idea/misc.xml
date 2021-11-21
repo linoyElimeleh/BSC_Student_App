@@ -6,10 +6,14 @@
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_main.xml" value="0.10666666666666667" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_details.xml" value="0.12" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_details_edit.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_details_edit2.xml" value="0.14175724637681159" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_details_view.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_empty.xml" value="0.1" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_list.xml" value="0.1" />
+        <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/activity_student_list_rv_acivity.xml" value="0.5" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/student_detailes.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/student_details_view.xml" value="0.1" />
+        <entry key="..\:/Users/mor/Student_App/app/src/main/res/layout/student_list_row.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2222222222222222" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_student_list.xml" value="0.1" />

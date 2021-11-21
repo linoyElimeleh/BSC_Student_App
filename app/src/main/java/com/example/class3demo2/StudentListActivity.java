@@ -1,22 +1,19 @@
 package com.example.class3demo2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
