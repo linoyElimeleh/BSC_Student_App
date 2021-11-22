@@ -11,7 +11,8 @@ import com.example.class3demo2.model.Student;
 
 import java.util.List;
 import android.content.Intent;
-
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 
 public class StudentDetails extends AppCompatActivity {
@@ -23,15 +24,27 @@ public class StudentDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_details_view);
         Button editButton= findViewById(R.id.sd_edit_btn);
+
+        TextView name_value=findViewById(R.id.sd_value_name);
+        TextView id_value=findViewById(R.id.sd_value_id);
+        TextView address_value=findViewById(R.id.sd_value_add);
+        TextView phone_value=findViewById(R.id.sd_value_phone);
+        CheckBox check_value=findViewById(R.id.sd_checkBox);
+
         Intent intent= new Intent(this,StudentEdit.class);
+
+        intent.putExtra("name",name_value.getText().toString());
+        intent.putExtra("id",id_value.getText().toString());
+        intent.putExtra("add",address_value.getText().toString());
+        intent.putExtra("phone",phone_value.getText().toString());
+        intent.putExtra("check",check_value.isChecked());
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(intent);
             }
         });
-
-
 
 
 

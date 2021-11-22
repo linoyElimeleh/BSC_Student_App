@@ -106,7 +106,7 @@
         app:srcCompat="@drawable/avatar" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/sde_value_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -114,10 +114,10 @@
         android:inputType="textPostalAddress"
         android:text="address"
         app:layout_constraintStart_toEndOf="@+id/main_key_name6"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/sde_value_phone" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/sde_value_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -125,10 +125,10 @@
         android:inputType="phone"
         android:text="phone"
         app:layout_constraintStart_toEndOf="@+id/main_key_name5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/sde_value_id" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/sde_value_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -136,10 +136,10 @@
         android:inputType="number"
         android:text="id"
         app:layout_constraintStart_toEndOf="@+id/main_key_name4"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/sde_value_name" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/sde_value_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -148,5 +148,15 @@
         android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/main_key_name3"
         app:layout_constraintTop_toBottomOf="@+id/main_avatar_imv3" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="CheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/sde_value_add"
+        tools:layout_editor_absoluteX="23dp"
+        tools:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
