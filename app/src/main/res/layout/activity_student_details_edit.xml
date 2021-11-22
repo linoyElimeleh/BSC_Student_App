@@ -54,38 +54,38 @@
         app:layout_constraintTop_toBottomOf="@+id/main_avatar_imv3" />
 
     <Button
-        android:id="@+id/sd_edit_btn2"
+        android:id="@+id/sd_edit_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="48dp"
-        android:text="edit"
+        android:text="DELETE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.208"
-        app:layout_constraintStart_toEndOf="@+id/sd_edit_btn4" />
+        app:layout_constraintStart_toEndOf="@+id/sd_edit_cancel" />
 
     <Button
-        android:id="@+id/sd_edit_btn3"
+        android:id="@+id/sd_edit_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="48dp"
-        android:text="edit"
+        android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/sd_edit_btn2" />
+        app:layout_constraintStart_toEndOf="@+id/sd_edit_delete" />
 
     <Button
-        android:id="@+id/sd_edit_btn4"
+        android:id="@+id/sd_edit_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="48dp"
-        android:text="edit"
+        android:text="CANCEL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.031"
