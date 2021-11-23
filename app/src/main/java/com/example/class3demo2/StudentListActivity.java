@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -16,8 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
-
-import org.w3c.dom.Text;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -42,19 +40,29 @@ public class StudentListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("TAG", "row was clicked" + position);
 
-
-                Student s = data.get(position);
-                String studentsName = s.getName();
-                String studentsId = s.getId();
-                Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
-                intentDetails.putExtra("name", studentToShow.getName());
-                intentDetails.putExtra("id", studentToShow.getId());
-                intentDetails.putExtra("phone", studentToShow.getPhone());
-                intentDetails.putExtra("add", studentToShow.getAddress());
-                intentDetails.putExtra("check", studentToShow.isFlag());
-                startActivity(intentDetails);
+        FloatingActionButton plusStudent = findViewById(R.id.sl_add_btn);
+        Intent intentMainActivity = new Intent(this, StudentAddNew.class);
+        plusStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentMainActivity);
             }
         });
+
+        TextView studentName = findViewById(R.id.listrow_name_tv);
+
+//        studentName.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                String currentName = "";
+//                String currentId = "";
+//
+//                //intentDetailsWithExtra.putExtra("name", editedName.getText().toString());
+//                //intentDetailsWithExtra.putExtra("id", editedId.getText().toString());
+//
+//            }
+//        });
 
     }
 

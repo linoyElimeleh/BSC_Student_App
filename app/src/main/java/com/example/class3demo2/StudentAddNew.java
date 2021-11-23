@@ -14,7 +14,7 @@ import android.widget.EditText;
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
 
-public class MainActivity extends AppCompatActivity {
+public class StudentAddNew extends AppCompatActivity {
     EditText nameEt;
     EditText idEt;
     EditText phoneEt;
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        // Initialize buttons
         nameEt = findViewById(R.id.main_name_et);
         idEt = findViewById(R.id.main_id_et);
         phoneEt = findViewById(R.id.main_phone_et);
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         Button saveBtn = findViewById(R.id.main_save_btn);
         Button cancelBtn = findViewById(R.id.main_cancel_btn);
 
+        // Save action
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Cancel action
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,23 +63,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void save() {
+
+        // Get data
         String name = nameEt.getText().toString();
         String id = idEt.getText().toString();
         String phone = phoneEt.getText().toString();
         String add = addressEt.getText().toString();
         boolean flag = cb.isChecked();
+
+        // Add new student to the model instance
         Model.instance.addStudent(new Student(name, id, add, phone, flag));
         Log.d("TAG", "saved name:" + name + " id:" + id + " flag:" + flag);
 
-        // Go to the student view
-        // setContentView(R.layout.activity_student_list);
+        // Create new intent with data to the next page
         Intent intent = new Intent(this, StudentDetails.class);
-        intent.putExtra("name", new String(name));
-        intent.putExtra("id", new String(id));
-        intent.putExtra("add", new String(add));
-        intent.putExtra("phone", new String(phone));
+        intent.putExtra("name", name);
+        intent.putExtra("id", id);
+        intent.putExtra("add", add);
+        intent.putExtra("phone", phone);
         intent.putExtra("check", flag);
 
+        // Go to the student details view
         startActivity(intent);
     }
 }
