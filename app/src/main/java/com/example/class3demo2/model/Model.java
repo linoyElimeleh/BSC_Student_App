@@ -8,7 +8,7 @@ public class Model {
 
     private Model() {
         for (int i = 0; i < 10; i++) {
-            Student s = new Student("name " + i, "" + i, false);
+            Student s = new Student("name " + i, "" + i, "rishon lezion", "053", false);
             data.add(s);
         }
     }
@@ -19,15 +19,23 @@ public class Model {
         return data;
     }
 
+    public Student findTheStudent(String name, String id) {
+        Student StudentToCheck = new Student(name, id, "", "", false);
+        for (int i = 0; i < data.size(); i++) {
+            if (checkIfTheStudentEquals(StudentToCheck, data.get(i))) {
+                return data.get(i);
+            }
+        }
+        return new Student("", "", "", "", false);
+    }
+
     public void addStudent(Student student) {
         data.add(student);
     }
 
     public boolean checkIfTheStudentEquals(Student student1, Student student2) {
         if (student1.getId() == student2.getId() &&
-                student1.getName() == student2.getName() &&
-                student1.getPhone() == student2.getPhone() &&
-                student1.getAddress() == student2.getAddress()) {
+                student1.getName() == student2.getName()) {
             return true;
         }
         return false;

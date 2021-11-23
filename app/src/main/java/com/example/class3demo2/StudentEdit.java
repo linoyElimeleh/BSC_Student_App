@@ -13,6 +13,7 @@ import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
 
 public class StudentEdit extends AppCompatActivity {
+    Intent intentDetailsWithExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +50,22 @@ public class StudentEdit extends AppCompatActivity {
         // Import old student
         Student oldStudent = new Student(name, id, address, phone, Boolean.parseBoolean(check));
 
+        // Import new intent
+        intentDetailsWithExtra = new Intent(this, StudentDetails.class);
+
         // Click on cancel
         Button cancelButton = findViewById(R.id.sd_edit_cancel);
-        Intent intentDetails = new Intent(this, StudentDetails.class);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intentDetails);
+                addIntentCurrentDetails(editedName.getText().toString(), editedId.getText().toString(),
+                        editedAddress.getText().toString(), editedPhone.getText().toString(), editedCheck.isChecked());
+                startActivity(intentDetailsWithExtra);
             }
         });
 
         // Click on save
         Button saveButton = findViewById(R.id.sd_edit_save);
-        Intent intentDetailsWithExtra = new Intent(this, StudentDetails.class);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,12 +74,8 @@ public class StudentEdit extends AppCompatActivity {
                         editedAddress.getText().toString(), editedPhone.getText().toString(), editedCheck.getFreezesText());
                 Model.instance.updateStudent(oldStudent, newStudent);
 
-                intentDetailsWithExtra.putExtra("name", editedName.getText().toString());
-                intentDetailsWithExtra.putExtra("id", editedId.getText().toString());
-                intentDetailsWithExtra.putExtra("add", editedAddress.getText().toString());
-                intentDetailsWithExtra.putExtra("phone", editedPhone.getText().toString());
-                intentDetailsWithExtra.putExtra("check", editedCheck.isChecked());
-
+                addIntentCurrentDetails(editedName.getText().toString(), editedId.getText().toString(),
+                        editedAddress.getText().toString(), editedPhone.getText().toString(), editedCheck.isChecked());
                 startActivity(intentDetailsWithExtra);
 
             }
@@ -95,5 +95,12 @@ public class StudentEdit extends AppCompatActivity {
 
     }
 
+    private void addIntentCurrentDetails(String name, String id, String address, String phone, boolean checked) {
+        intentDetailsWithExtra.putExtra("name", name);
+        intentDetailsWithExtra.putExtra("id", id);
+        intentDetailsWithExtra.putExtra("add", address);
+        intentDetailsWithExtra.putExtra("phone", phone);
+        intentDetailsWithExtra.putExtra("check", checked);
+    }
 
 }

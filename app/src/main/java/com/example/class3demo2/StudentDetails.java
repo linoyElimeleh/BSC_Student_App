@@ -28,32 +28,32 @@ public class StudentDetails extends AppCompatActivity {
         setContentView(R.layout.activity_student_details_view);
 
         //todo add this when we have the connection between student list and student details
-//        Intent oldIntent = getIntent();
-//
-//        // edit name
-//        String name = oldIntent.getStringExtra("name");
-//        TextView editedName = findViewById(R.id.sd_value_name);
-//        editedName.setText(name);
-//
-//        // edit id
-//        String id = oldIntent.getStringExtra("id");
-//        TextView editedId = findViewById(R.id.sd_value_id);
-//        editedId.setText(id);
-//
-//        // edit phone
-//        String phone = oldIntent.getStringExtra("phone");
-//        TextView editedPhone = findViewById(R.id.sd_value_phone);
-//        editedPhone.setText(phone);
-//
-//        // edit address
-//        String address = oldIntent.getStringExtra("add");
-//        TextView editedAddress = findViewById(R.id.sd_value_add);
-//        editedAddress.setText(address);
-//
-//        // checkbox address
-//        String check = oldIntent.getStringExtra("check");
-//        TextView editedCheck = findViewById(R.id.checkBox);
-//        editedCheck.setText(check);
+        Intent oldIntent = getIntent();
+
+        // edit name
+        String name = oldIntent.getStringExtra("name");
+        TextView editedName = findViewById(R.id.sd_value_name);
+        editedName.setText(name);
+
+        // edit id
+        String id = oldIntent.getStringExtra("id");
+        TextView editedId = findViewById(R.id.sd_value_id);
+        editedId.setText(id);
+
+        // edit phone
+        String phone = oldIntent.getStringExtra("phone");
+        TextView editedPhone = findViewById(R.id.sd_value_phone);
+        editedPhone.setText(phone);
+
+        // edit address
+        String address = oldIntent.getStringExtra("add");
+        TextView editedAddress = findViewById(R.id.sd_value_add);
+        editedAddress.setText(address);
+
+        // checkbox address
+        //String check = oldIntent.getStringExtra("check");
+        //TextView editedCheck = findViewById(R.id.checkBox);
+        //editedCheck.setText(check);
 
         Button editButton = findViewById(R.id.sd_edit_btn);
 
