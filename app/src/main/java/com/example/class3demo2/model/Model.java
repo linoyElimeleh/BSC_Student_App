@@ -34,8 +34,8 @@ public class Model {
     }
 
     public boolean checkIfTheStudentEquals(Student student1, Student student2) {
-        if (student1.getId() == student2.getId() &&
-                student1.getName() == student2.getName()) {
+        if (student1.getId().equals(student2.getId()) &&
+                student1.getName().equals(student2.getName())) {
             return true;
         }
         return false;
