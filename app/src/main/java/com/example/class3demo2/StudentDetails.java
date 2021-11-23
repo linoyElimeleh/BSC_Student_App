@@ -1,9 +1,11 @@
 package com.example.class3demo2;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -69,5 +71,14 @@ public class StudentDetails extends AppCompatActivity {
         Boolean check = intent.getBooleanExtra(extra, false);
         CheckBox editedCheck = findViewById(id);
         editedCheck.setChecked(check);
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

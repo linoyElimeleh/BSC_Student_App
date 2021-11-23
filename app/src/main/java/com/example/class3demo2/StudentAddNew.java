@@ -1,11 +1,13 @@
 package com.example.class3demo2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.ActionBar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -30,17 +32,15 @@ public class StudentAddNew extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-
         // Initialize buttons
         nameEt = findViewById(R.id.main_name_et);
         idEt = findViewById(R.id.main_id_et);
         phoneEt = findViewById(R.id.main_phone_et);
         addressEt = findViewById(R.id.main_add_et);
         cb = findViewById(R.id.main_cb);
-        Button saveBtn = findViewById(R.id.main_save_btn);
-        Button cancelBtn = findViewById(R.id.main_cancel_btn);
 
         // Save action
+        Button saveBtn = findViewById(R.id.main_save_btn);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,12 +49,22 @@ public class StudentAddNew extends AppCompatActivity {
         });
 
         // Cancel action
+        Button cancelBtn = findViewById(R.id.main_cancel_btn);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cancel();
             }
         });
+    }
+
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void cancel() {
