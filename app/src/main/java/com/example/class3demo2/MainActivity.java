@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("id", new String(id));
         intent.putExtra("add", new String(add));
         intent.putExtra("phone", new String(phone));
-        intent.putExtra("check", new String(name));
+        intent.putExtra("check", flag);
 
         startActivity(intent);
     }

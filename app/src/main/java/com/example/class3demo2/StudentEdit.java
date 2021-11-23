@@ -43,12 +43,12 @@ public class StudentEdit extends AppCompatActivity {
         editedAddress.setText(address);
 
         // checkbox address
-        String check = intent.getStringExtra("check");
-        CheckBox editedCheck = findViewById(R.id.checkBox);
-        editedCheck.setText(check);
+        Boolean check = intent.getBooleanExtra("check", false);
+        CheckBox editedCheck = findViewById(R.id.sd_checkBox);
+        editedCheck.setChecked(check);
 
         // Import old student
-        Student oldStudent = new Student(name, id, address, phone, Boolean.parseBoolean(check));
+        Student oldStudent = new Student(name, id, address, phone, check);
 
         // Import new intent
         intentDetailsWithExtra = new Intent(this, StudentDetails.class);
@@ -66,7 +66,6 @@ public class StudentEdit extends AppCompatActivity {
 
         // Click on save
         Button saveButton = findViewById(R.id.sd_edit_save);
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

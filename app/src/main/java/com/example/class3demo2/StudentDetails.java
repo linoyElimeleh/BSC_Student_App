@@ -50,10 +50,10 @@ public class StudentDetails extends AppCompatActivity {
         TextView editedAddress = findViewById(R.id.sd_value_add);
         editedAddress.setText(address);
 
-        // checkbox address
-        //String check = oldIntent.getStringExtra("check");
-        //TextView editedCheck = findViewById(R.id.checkBox);
-        //editedCheck.setText(check);
+        // checkbox
+        Boolean check = oldIntent.getBooleanExtra("check", false);
+        CheckBox editedCheck = findViewById(R.id.sd_checkBox);
+        editedCheck.setChecked(check);
 
         Button editButton = findViewById(R.id.sd_edit_btn);
 
