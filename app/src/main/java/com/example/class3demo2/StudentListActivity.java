@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,8 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -46,7 +43,7 @@ public class StudentListActivity extends AppCompatActivity {
         });
 
         FloatingActionButton plusStudent = findViewById(R.id.sl_add_btn);
-        Intent intentMainActivity = new Intent(this, MainActivity.class);
+        Intent intentMainActivity = new Intent(this, StudentAddNew.class);
         plusStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
