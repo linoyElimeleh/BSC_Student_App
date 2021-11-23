@@ -112,6 +112,26 @@ public class StudentListActivity extends AppCompatActivity {
                     }
                 });
             }
+            TextView studentId = convertView.findViewById(R.id.listrow_id_tv);
+            studentId.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = Integer.parseInt(v.getTag().toString());
+                    Log.d("Student", "Student " + pos);
+                    Student s = data.get(pos);
+                    String studentsName = s.getName();
+                    String studentsId = s.getId();
+                    Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
+                    intentDetails.putExtra("name", studentToShow.getName());
+                    intentDetails.putExtra("id", studentToShow.getId());
+                    intentDetails.putExtra("phone", studentToShow.getPhone());
+                    intentDetails.putExtra("add", studentToShow.getAddress());
+                    intentDetails.putExtra("check", studentToShow.isFlag());
+                    startActivity(intentDetails);
+                }
+            });
+
+
             TextView nameTv = convertView.findViewById(R.id.listrow_name_tv);
             TextView idTv = convertView.findViewById(R.id.listrow_id_tv);
             CheckBox cb = convertView.findViewById(R.id.listrow_cb);
