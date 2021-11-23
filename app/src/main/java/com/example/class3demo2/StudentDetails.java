@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -24,15 +25,23 @@ public class StudentDetails extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+
+
         // Get the intent from the previous page
         Intent oldIntent = getIntent();
+
+        Boolean check = oldIntent.getBooleanExtra("check", false);
+        ImageView checkImg = findViewById(R.id.sd_check_img);
+        if (check){checkImg.setImageResource(android.R.drawable.checkbox_on_background);}
+
+
 
         // Get previous data
         setTextViewWithPreviousItem(oldIntent, "name", R.id.sd_value_name);
         setTextViewWithPreviousItem(oldIntent, "id", R.id.sd_value_id);
         setTextViewWithPreviousItem(oldIntent, "phone", R.id.sd_value_phone);
         setTextViewWithPreviousItem(oldIntent, "add", R.id.sd_value_add);
-        setCheckBoxWithPreviousItem(oldIntent, "check", R.id.sd_checkBox);
+//        setCheckBoxWithPreviousItem(oldIntent, "check", R.id.sd_checkBox);
 
         // Set the intent page
         oldIntent.setClass(this, StudentEdit.class);
