@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
 
@@ -41,6 +42,15 @@ public class StudentListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("TAG", "row was clicked" + position);
+            }
+        });
+
+        FloatingActionButton plusStudent = findViewById(R.id.sl_add_btn);
+        Intent intentMainActivity = new Intent(this, MainActivity.class);
+        plusStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentMainActivity);
             }
         });
 
