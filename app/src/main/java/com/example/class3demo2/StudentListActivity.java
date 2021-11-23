@@ -41,23 +41,20 @@ public class StudentListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("TAG", "row was clicked" + position);
+
+
+                Student s = data.get(position);
+                String studentsName = s.getName();
+                String studentsId = s.getId();
+                Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
+                intentDetails.putExtra("name", studentToShow.getName());
+                intentDetails.putExtra("id", studentToShow.getId());
+                intentDetails.putExtra("phone", studentToShow.getPhone());
+                intentDetails.putExtra("add", studentToShow.getAddress());
+                intentDetails.putExtra("check", studentToShow.isFlag());
+                startActivity(intentDetails);
             }
         });
-
-        TextView studentName = findViewById(R.id.listrow_name_tv);
-
-//        studentName.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                String currentName = "";
-//                String currentId = "";
-//
-//                //intentDetailsWithExtra.putExtra("name", editedName.getText().toString());
-//                //intentDetailsWithExtra.putExtra("id", editedId.getText().toString());
-//
-//            }
-//        });
 
     }
 
