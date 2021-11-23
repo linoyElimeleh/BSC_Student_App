@@ -11,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.class3demo2.model.Model;
@@ -27,6 +28,9 @@ public class StudentListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
+        this.setTitle("Students List");
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         data = Model.instance.getAllStudents();
         intentDetails = new Intent(this, StudentDetails.class);
@@ -39,6 +43,8 @@ public class StudentListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("TAG", "row was clicked" + position);
+            }
+        });
 
         FloatingActionButton plusStudent = findViewById(R.id.sl_add_btn);
         Intent intentMainActivity = new Intent(this, StudentAddNew.class);
