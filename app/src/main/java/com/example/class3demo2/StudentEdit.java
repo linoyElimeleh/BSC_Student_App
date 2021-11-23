@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
@@ -26,30 +27,24 @@ public class StudentEdit extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        // edit name
+        // Get previous data
+        setTextViewWithPreviousItem(intent, "name", R.id.sde_value_name);
+        setTextViewWithPreviousItem(intent, "id", R.id.sde_value_id);
+        setTextViewWithPreviousItem(intent, "phone", R.id.sde_value_phone);
+        setTextViewWithPreviousItem(intent, "add", R.id.sde_value_add);
+        setCheckBoxWithPreviousItem(intent, "check", R.id.checkBox);
+
+        // Get Data
         String name = intent.getStringExtra("name");
         EditText editedName = findViewById(R.id.sde_value_name);
-        editedName.setText(name);
-
-        // edit id
         String id = intent.getStringExtra("id");
         EditText editedId = findViewById(R.id.sde_value_id);
-        editedId.setText(id);
-
-        // edit phone
         String phone = intent.getStringExtra("phone");
         EditText editedPhone = findViewById(R.id.sde_value_phone);
-        editedPhone.setText(phone);
-
-        // edit address
         String address = intent.getStringExtra("add");
         EditText editedAddress = findViewById(R.id.sde_value_add);
-        editedAddress.setText(address);
-
-        // checkbox address
         Boolean check = intent.getBooleanExtra("check", false);
         CheckBox editedCheck = findViewById(R.id.checkBox);
-        editedCheck.setChecked(check);
 
         // Import old student
         Student oldStudent = new Student(name, id, address, phone, check);
@@ -106,4 +101,29 @@ public class StudentEdit extends AppCompatActivity {
         intentDetailsWithExtra.putExtra("check", checked);
     }
 
+    /**
+     * This function get an id, extra and intent the set the data from a text view
+     *
+     * @param intent
+     * @param extra
+     * @param id
+     */
+    private void setTextViewWithPreviousItem(Intent intent, String extra, int id) {
+        String stringExtra = intent.getStringExtra(extra);
+        TextView textView = findViewById(id);
+        textView.setText(stringExtra);
+    }
+
+    /**
+     * This function get the intent and extra and id and set the data with the previous details
+     *
+     * @param intent
+     * @param extra
+     * @param id
+     */
+    private void setCheckBoxWithPreviousItem(Intent intent, String extra, int id) {
+        Boolean check = intent.getBooleanExtra(extra, false);
+        CheckBox editedCheck = findViewById(id);
+        editedCheck.setChecked(check);
+    }
 }
