@@ -67,6 +67,7 @@ public class StudentEdit extends AppCompatActivity {
 
         // Click on save
         Button saveButton = findViewById(R.id.sd_edit_save);
+        intentDetailsWithExtra.setClass(this, StudentListActivity.class);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
