@@ -44,7 +44,7 @@ public class StudentEdit extends AppCompatActivity {
 
         // checkbox address
         Boolean check = intent.getBooleanExtra("check", false);
-        CheckBox editedCheck = findViewById(R.id.sd_checkBox);
+        CheckBox editedCheck = findViewById(R.id.checkBox);
         editedCheck.setChecked(check);
 
         // Import old student

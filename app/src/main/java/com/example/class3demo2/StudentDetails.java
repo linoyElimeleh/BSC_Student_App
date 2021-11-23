@@ -77,7 +77,5 @@ public class StudentDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }
