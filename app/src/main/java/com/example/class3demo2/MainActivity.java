@@ -16,6 +16,8 @@ import com.example.class3demo2.model.Student;
 public class MainActivity extends AppCompatActivity {
     EditText nameEt;
     EditText idEt;
+    EditText phoneEt;
+    EditText addressEt;
     CheckBox cb;
 
     @Override
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         nameEt = findViewById(R.id.main_name_et);
         idEt = findViewById(R.id.main_id_et);
+        phoneEt = findViewById(R.id.main_phone_et);
+        addressEt = findViewById(R.id.main_add_et);
         cb = findViewById(R.id.main_cb);
         Button saveBtn = findViewById(R.id.main_save_btn);
         Button cancelBtn = findViewById(R.id.main_cancel_btn);
@@ -35,19 +39,38 @@ public class MainActivity extends AppCompatActivity {
                 save();
             }
         });
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
+            }
+        });
+    }
+
+    private void cancel() {
+        Intent intent = new Intent(this, StudentListActivity.class);
+        startActivity(intent);
     }
 
     private void save() {
         String name = nameEt.getText().toString();
         String id = idEt.getText().toString();
+        String phone = phoneEt.getText().toString();
+        String add = addressEt.getText().toString();
         boolean flag = cb.isChecked();
-        Model.instance.addStudent(new Student(name, id, flag));
+        Model.instance.addStudent(new Student(name, id, add, phone, flag));
         Log.d("TAG", "saved name:" + name + " id:" + id + " flag:" + flag);
 
         // Go to the student view
         // setContentView(R.layout.activity_student_list);
         Intent intent = new Intent(this, StudentDetails.class);
-        intent.putExtra("student_name", new String(name));
+        intent.putExtra("name", new String(name));
+        intent.putExtra("id", new String(id));
+        intent.putExtra("add", new String(add));
+        intent.putExtra("phone", new String(phone));
+        intent.putExtra("check", new String(name));
+
         startActivity(intent);
     }
 }
