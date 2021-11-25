@@ -86,7 +86,7 @@ public class StudentAddNew extends AppCompatActivity {
         Log.d("TAG", "saved name:" + name + " id:" + id + " flag:" + flag);
 
         // Create new intent with data to the next page
-        Intent intent = new Intent(this, StudentDetails.class);
+        Intent intent = new Intent(this, StudentListActivity.class);
         intent.putExtra("name", name);
         intent.putExtra("id", id);
         intent.putExtra("add", add);
