@@ -57,20 +57,6 @@ public class StudentListActivity extends AppCompatActivity {
             }
         });
 
-        TextView studentName = findViewById(R.id.listrow_name_tv);
-
-//        studentName.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                String currentName = "";
-//                String currentId = "";
-//
-//                //intentDetailsWithExtra.putExtra("name", editedName.getText().toString());
-//                //intentDetailsWithExtra.putExtra("id", editedId.getText().toString());
-//
-//            }
-//        });
 
     }
 
@@ -106,30 +92,51 @@ public class StudentListActivity extends AppCompatActivity {
                     }
                 });
 
-                TextView studentName = convertView.findViewById(R.id.listrow_name_tv);
-                studentName.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int pos = Integer.parseInt(v.getTag().toString());
-                        Log.d("Student", "Student " + pos);
-                        Student s = data.get(pos);
-                        String studentsName = s.getName();
-                        String studentsId = s.getId();
-                        Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
-                        intentDetails.putExtra("name", studentToShow.getName());
-                        intentDetails.putExtra("id", studentToShow.getId());
-                        intentDetails.putExtra("phone", studentToShow.getPhone());
-                        intentDetails.putExtra("add", studentToShow.getAddress());
-                        intentDetails.putExtra("check", studentToShow.isFlag());
-                        startActivity(intentDetails);
-                    }
-                });
+
+
+//
+//                TextView studentName = convertView.findViewById(R.id.listrow_name_tv);
+//                studentName.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        int pos = Integer.parseInt(v.getTag().toString());
+//                        Log.d("Student", "Student " + pos);
+//                        Student s = data.get(pos);
+//                        String studentsName = s.getName();
+//                        String studentsId = s.getId();
+//                        Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
+//                        intentDetails.putExtra("name", studentToShow.getName());
+//                        intentDetails.putExtra("id", studentToShow.getId());
+//                        intentDetails.putExtra("phone", studentToShow.getPhone());
+//                        intentDetails.putExtra("add", studentToShow.getAddress());
+//                        intentDetails.putExtra("check", studentToShow.isFlag());
+//                        startActivity(intentDetails);
+//                    }
+//                });
             }
-            TextView studentId = convertView.findViewById(R.id.listrow_id_tv);
-            studentId.setOnClickListener(new View.OnClickListener() {
+//            TextView studentId = convertView.findViewById(R.id.listrow_id_tv);
+//            studentId.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int pos = Integer.parseInt(v.getTag().toString());
+//                    Log.d("Student", "Student " + pos);
+//                    Student s = data.get(pos);
+//                    String studentsName = s.getName();
+//                    String studentsId = s.getId();
+//                    Student studentToShow = Model.instance.findTheStudent(studentsName, studentsId);
+//                    intentDetails.putExtra("name", studentToShow.getName());
+//                    intentDetails.putExtra("id", studentToShow.getId());
+//                    intentDetails.putExtra("phone", studentToShow.getPhone());
+//                    intentDetails.putExtra("add", studentToShow.getAddress());
+//                    intentDetails.putExtra("check", studentToShow.isFlag());
+//                    startActivity(intentDetails);
+//                }
+//            });
+
+            convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int pos = Integer.parseInt(v.getTag().toString());
+                    int pos = position;
                     Log.d("Student", "Student " + pos);
                     Student s = data.get(pos);
                     String studentsName = s.getName();
@@ -143,8 +150,6 @@ public class StudentListActivity extends AppCompatActivity {
                     startActivity(intentDetails);
                 }
             });
-
-
             TextView nameTv = convertView.findViewById(R.id.listrow_name_tv);
             TextView idTv = convertView.findViewById(R.id.listrow_id_tv);
             CheckBox cb = convertView.findViewById(R.id.listrow_cb);

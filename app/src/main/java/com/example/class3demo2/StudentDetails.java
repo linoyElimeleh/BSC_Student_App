@@ -26,7 +26,6 @@ public class StudentDetails extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
 
-
         // Get the intent from the previous page
         Intent oldIntent = getIntent();
 
@@ -41,7 +40,6 @@ public class StudentDetails extends AppCompatActivity {
         setTextViewWithPreviousItem(oldIntent, "id", R.id.sd_value_id);
         setTextViewWithPreviousItem(oldIntent, "phone", R.id.sd_value_phone);
         setTextViewWithPreviousItem(oldIntent, "add", R.id.sd_value_add);
-//        setCheckBoxWithPreviousItem(oldIntent, "check", R.id.sd_checkBox);
 
         // Set the intent page
         oldIntent.setClass(this, StudentEdit.class);
@@ -67,19 +65,6 @@ public class StudentDetails extends AppCompatActivity {
         String stringExtra = intent.getStringExtra(extra);
         TextView textView = findViewById(id);
         textView.setText(stringExtra);
-    }
-
-    /**
-     * This function get the intent and extra and id and set the data with the previous details
-     *
-     * @param intent
-     * @param extra
-     * @param id
-     */
-    private void setCheckBoxWithPreviousItem(Intent intent, String extra, int id) {
-        Boolean check = intent.getBooleanExtra(extra, false);
-        CheckBox editedCheck = findViewById(id);
-        editedCheck.setChecked(check);
     }
 
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
