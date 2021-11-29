@@ -72,7 +72,7 @@ public class StudentEdit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Student newStudent = new Student(editedName.getText().toString(), editedId.getText().toString(),
-                        editedAddress.getText().toString(), editedPhone.getText().toString(), editedCheck.getFreezesText());
+                        editedAddress.getText().toString(), editedPhone.getText().toString(), editedCheck.isChecked());
                 Model.instance.updateStudent(oldStudent, newStudent);
 
                 addIntentCurrentDetails(editedName.getText().toString(), editedId.getText().toString(),

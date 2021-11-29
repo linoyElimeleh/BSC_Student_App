@@ -48,6 +48,7 @@ public class Model {
                 data.get(i).setId(newStudent.getId());
                 data.get(i).setPhone(newStudent.getPhone());
                 data.get(i).setName(newStudent.getName());
+                data.get(i).setFlag(newStudent.isFlag());
                 return;
             }
         }
