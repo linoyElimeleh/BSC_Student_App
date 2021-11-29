@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,11 +15,11 @@ import android.widget.TextView;
 
 import com.example.class3demo2.model.Model;
 import com.example.class3demo2.model.Student;
-
+import android.content.Intent;
 import java.util.List;
 
 public class StudentListRvAcivity extends AppCompatActivity {
-
+    Intent intent = new Intent(this,StudentDetails.class);
     List<Student> data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +62,31 @@ public class StudentListRvAcivity extends AppCompatActivity {
                 }
             });
         }
+
+//        @Override
+//        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+//            Student student = data.get(position);
+//            holder.nameTv.setText(student.getName());
+//            holder.idTv.setText(student.getId());
+//            holder.cb.setChecked(student.isFlag());
+
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    intent.putExtra("name",data.get(position).getName());
+//                    startActivity(intent);
+//                }
+//            });
+//        }
+
+
     }
 
     interface OnItemClickListener{
         void onItemClick(int position);
     }
     class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
+
 
         OnItemClickListener listener;
         public void setOnItemClickListener(OnItemClickListener listener){
@@ -87,6 +107,14 @@ public class StudentListRvAcivity extends AppCompatActivity {
             holder.nameTv.setText(student.getName());
             holder.idTv.setText(student.getId());
             holder.cb.setChecked(student.isFlag());
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent.putExtra("name",data.get(position).getName());
+                    startActivity(intent);
+                }
+            });
         }
 
         @Override
